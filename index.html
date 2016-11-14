@@ -1,9 +1,105 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Week4 - Homework</title>
-</head>
-<body>
+	<head>
+		<title>Week4 - Homework</title>
+		<script type="text/javascript" src="assets/javascript/game.js"></script>
+		<script
+		src="https://code.jquery.com/jquery-3.1.1.js"
+		integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+		crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-</body>
+		<script type="text/javascript">
+
+			$("#rubyButton").on("click", function() {
+			// playerCount = (playerCount + randRuby);
+			// $("#playerScoreDiv").html(playerCount);
+
+			console.log("Ruby do something");
+			
+
+			});
+
+			$("#sapphirePic").on("click", function() {
+				console.log("Sapphire please");
+			});
+
+		</script>
+	</head>
+	<body>
+		<!-- Top Header -->
+		<div class="container">
+			<h1>Crystals Collector!</h1>
+		</div>
+		<br>
+		<!-- Body -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<p>
+						You will be given a random number at the start of the game.
+					</p>
+					<p>
+						There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
+					</p>
+					<p>
+						You will the game by matching your total score to the random number. You lose the game if your total score goes above the random number.
+					</p>
+					<p>
+						The value of each crystal is hidden from you until you click on it.
+					</p>
+					<p>
+						Each time when the game starts, the game will change the values of each crystal.
+					</p>
+					<br><br><br>
+				</div>
+			</div>
+			<div class="row">
+				<!-- Store the randomly generated 19-120 number here -->
+				<div class="col-md-3" id="randomNumDiv">
+					<p>Random  Number Here</p>
+					<!-- Store the wins and losses counters here -->
+				</div>
+				<div class="col-md-2" id="winLossDiv">
+					<p>Wins and Losses Here</p>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<!-- Ruby -->
+				<div class="col-md-2 rubyTest">
+					<button id="rubyButton" class="btn btn-primary"><img id="rubyPic"src="assets/images/ruby.png"></button>
+				</div>
+				<div class="col-md-1"></div>
+				<!-- Sapphire -->
+				<div class="col-md-2">
+					<button class="btn btn-primary"><img id="sapphirePic" src="assets/images/Sapphire-200x200.png"></button>
+				</div>
+				<div class="col-md-1"></div>
+				<!-- Topaz -->
+				<div class="col-md-2" id="topazPic">
+					<button class="btn btn-primary"><img src="assets/images/topaz.jpg"></button>
+				</div>
+				<div class="col-md-1"></div>
+				<!-- Emerald -->
+				<div class="col-md-2" id="emeraldPic">
+					<button class="btn btn-primary"><img src="assets/images/emerald-200x200.jpg"></button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<h3>Your total score is:</h3>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<!-- Current Score from clicking gems -->
+				<div class="col-md-4" id="playerScoreDiv">
+					
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
