@@ -10,61 +10,47 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
 		<script type="text/javascript">
 		$(document).ready(function(){
-
-
 			var winCount = 0;
 			var lossCount = 0;
-
-			//Variables for gems, random 1-12 
+			//Variables for gems, random 1-12
 			var randRuby = Math.floor(Math.random() * 12) + 1;
 			var randSapphire = Math.floor(Math.random() * 12) + 1;
 			var randTopaz = Math.floor(Math.random() * 12) + 1;
 			var randEmerald = Math.floor(Math.random() * 12) + 1;
-
 			//Variable for target number
 			var winningNumber = Math.floor(Math.random() * 101) + 19;
-
 			//Track Player total
 			var playerCount = 0;
-
 			//Restart the game
 			function reset () {
-
 				randRuby = Math.floor(Math.random() * 12) + 1;
-			 	randSapphire = Math.floor(Math.random() * 12) + 1;
-			 	randTopaz = Math.floor(Math.random() * 12) + 1;
-			 	randEmerald = Math.floor(Math.random() * 12) + 1;
-			 	winningNumber = Math.floor(Math.random() * 101) + 19;
-			 	playerCount = 0;
-
+				randSapphire = Math.floor(Math.random() * 12) + 1;
+				randTopaz = Math.floor(Math.random() * 12) + 1;
+				randEmerald = Math.floor(Math.random() * 12) + 1;
+				winningNumber = Math.floor(Math.random() * 101) + 19;
+				playerCount = 0;
 			}
 			//Display target random number 19 - 120
 			function newGoalNumber () {
 				$("#randomNumDiv").html(winningNumber);
 			}
-
 			newGoalNumber();
-
 			// Update/Display Wins
 			function updateWins (){
 				$("#winCountDisplay").html("Wins: " + winCount);
 			};
 			updateWins();
-
 			// Update/Display Losses
 			function updateLosses (){
 				$("#lossCountDisplay").html("Losses: " + lossCount);
 			};
 			updateLosses();
-
 			//Update Player Total Score area
 			function playerTotalScoreUpdate(){
 				$("#playerScoreDiv").html(playerCount);
 			}
-
 			function winsLossCheck () {
 				if(playerCount > winningNumber){
 					alert("You have lost the game");
@@ -75,10 +61,9 @@
 						reset();
 						newGoalNumber();
 						playerTotalScoreUpdate();
-						}  
-	
+						}
+		
 				} // end of loss check
-
 				if(playerCount === winningNumber) {
 					alert("Congratulations you win!!");
 					winCount++;
@@ -88,9 +73,8 @@
 						reset();
 						newGoalNumber();
 						playerTotalScoreUpdate();
-						}  
+						}
 				} // end of win check
-
 			}; // end of WinLossCheck functino
 			
 			console.log("Ruby random value: " + randRuby);
@@ -98,96 +82,108 @@
 			console.log("Topaz random value: " + randTopaz);
 			console.log("Emerald random value: " + randEmerald);
 			console.log("Winning Number: " + winningNumber);
-
 			// Ruby Button click
 			$("#rubyButton").click(function () {
 					console.log("Ruby random value: " + randRuby);
 					playerCount += randRuby;
-					//overwrite player's score 
+					//overwrite player's score
 					$("#playerScoreDiv").html(playerCount);
 					winsLossCheck();
 					
-
 			});
-
 			// Sapphire Button click
 			$("#sapphireButton").click(function() {
 				playerCount += randSapphire;
 				$("#playerScoreDiv").html(playerCount);
 				console.log("Sapphire random value: " + randSapphire);
 				winsLossCheck();
-
 			});
-
 			// Topaz Button click
 			$("#topazButton").click(function() {
 				playerCount += randTopaz;
 				$("#playerScoreDiv").html(playerCount);
 				console.log("Topaz random value: " + randTopaz);
 				winsLossCheck();
-
 			});
-
 			// Emerald Button click
 			$("#emeraldButton").click(function() {
-
 				playerCount += randEmerald;
 				$("#playerScoreDiv").html(playerCount);
 				console.log("Emerald random value: " + randEmerald);
 				winsLossCheck();
 			});
-
-
 		}); // End of Document.ready function
-
-
 			
-
-
-
-
 		</script>
 	</head>
 	<body>
 		<!-- Top Header -->
 		<div class="container">
-			<h1>Crystals Collector!</h1>
+			
+			
+			<div class="jumbotron">
+				<h1 id="twinkleHeader">Crystals Collector!</h1>
+				<p>
+					This is a simple addition game!
+				</p>
+			</div>
 		</div>
+		
 		<br>
 		<!-- Body -->
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
-					<p>
-						You will be given a random number at the start of the game.
-					</p>
-					<p>
-						There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
-					</p>
-					<p>
-						You will the game by matching your total score to the random number. You lose the game if your total score goes above the random number.
-					</p>
-					<p>
-						The value of each crystal is hidden from you until you click on it.
-					</p>
-					<p>
-						Each time when the game starts, the game will change the values of each crystal.
-					</p>
-					<br><br><br>
+				<div class="col-md-12">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">Instructions</h3>
+						</div>
+						<div class="panel-body">
+							<p>
+								You will be given a random number at the start of the game.
+							</p>
+							<p>
+								There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
+							</p>
+							<p>
+								You win the game by matching your total score to the random number. You lose the game if your total score goes above the random number.
+							</p>
+							<p>
+								The value of each crystal is hidden from you until you click on it.
+							</p>
+							<p>
+								Each time when the game starts, the game will change the values of each crystal.
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
+			<br>
+			
+			
 			<div class="row">
 				<!-- Store the randomly generated 19-120 number here -->
 				<div class="col-md-3">
-					<p><h3>Your Target Number is:</h3></p>
-					<p><h3 id="randomNumDiv"></h3></p>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<p><h3>Your Target Number:</h3></p>
+							<p><h3 id="randomNumDiv"></h3></p>
+						</div>
+						
+					</div>
 				</div>
-					
-					<!-- Store the wins and losses counters here -->
 				
-				<div class="col-md-2" id="winLossDiv">
-					<p><h3 id="winCountDisplay"></h3></p>
-					<p><h3 id="lossCountDisplay"></h3></p>
+				<!-- Store the wins and losses counters here -->
+				
+				<div class="col-md-3" id="winLossDiv">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<p><h3 id="winCountDisplay"></h3></p>
+							<p><h3 id="lossCountDisplay"></h3></p>
+						</div>
+						
+					</div>
+					
 				</div>
 			</div>
 			<br>
@@ -212,18 +208,22 @@
 					<button class="btn btn-primary" id="emeraldButton"><img src="assets/images/emerald-200x200.jpg"></button>
 				</div>
 			</div>
+			<br>
+			<!-- Current Score from clicking gems -->
 			<div class="row">
-				<div class="col-md-4">
-					<h3>Your total score is:</h3>
+				<div class="col-md-3">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<p><h3>Your total score is:</h3></p>
+							<p><h3 class="col-md-4" id="playerScoreDiv">0</h3></p>
+						</div>
+						
+					</div>
+					
 				</div>
 			</div>
-			<br>
-			<div class="row">
-				<!-- Current Score from clicking gems -->
-				<h3 class="col-md-4" id="playerScoreDiv">
-					0
-				</h3>
-			</div>
+			
+
 		</div>
 	</body>
 </html>
