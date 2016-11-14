@@ -28,6 +28,3 @@ function reset () {
 
 }
 
-// $("#rubyPic").on("click", function() {
-// 	playerCount = (playerCount + randRuby);
-// });

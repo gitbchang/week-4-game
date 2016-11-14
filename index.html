@@ -12,19 +12,79 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 		<script type="text/javascript">
+		$(document).ready(function(){
 
-			$("#rubyButton").on("click", function() {
-			// playerCount = (playerCount + randRuby);
-			// $("#playerScoreDiv").html(playerCount);
 
-			console.log("Ruby do something");
+			var winCount = 0;
+			var lossCount = 0;
+
+			//Variables for gems, random 1-12 
+			var randRuby = Math.floor(Math.random() * 12) + 1;
+			var randSapphire = Math.floor(Math.random() * 12) + 1;
+			var randTopaz = Math.floor(Math.random() * 12) + 1;
+			var randEmerald = Math.floor(Math.random() * 12) + 1;
+
+			//Variable for target number
+			var winningNumber = Math.floor(Math.random() * 101) + 19;
+
+			//Track Player total
+			var playerCount = 0;
+
+			//Restart the game
+			function reset () {
+
+				randRuby = Math.floor(Math.random() * 12) + 1;
+			 	randSapphire = Math.floor(Math.random() * 12) + 1;
+			 	randTopaz = Math.floor(Math.random() * 12) + 1;
+			 	randEmerald = Math.floor(Math.random() * 12) + 1;
+			 	winningNumber = Math.floor(Math.random() * 101) + 19;
+			 	playerCount = 0;
+
+			}
+			//Display target random number 19 - 120
+			function newGoalNumber () {
+				$("#randomNumDiv").html(winningNumber);
+			}
+
+			newGoalNumber();
+
+			// Update/Display Wins
+			function updateWins (){
+				$("#winCountDisplay").html("Wins: " + winCount);
+			};
+			updateWins();
+
+			// Update/Display Losses
+			function updateLosses (){
+				$("#lossCountDisplay").html("Losses: " + lossCount);
+			};
+			updateLosses();
+			
+				console.log("Ruby random value: " + randRuby);
+			console.log("Sapphire random value: " + randSapphire);
+			console.log("Topaz random value: " + randTopaz);
+			console.log("Emerald random value: " + randEmerald);
+			console.log("Winning Number: " + winningNumber);
+
+			// Ruby Button click
+			$("#rubyButton").click(function () {
+					console.log("Initial playerCount: " + playerCount);
+					console.log("Ruby random value: " + randRuby);
+					playerCount += randRuby;
+					//overwrite player's score 
+					$("#playerScoreDiv").html(playerCount);
+					newGoalNumber();
+
+			});
+
+
+		}); // End of Document.ready function
+
+
 			
 
-			});
 
-			$("#sapphirePic").on("click", function() {
-				console.log("Sapphire please");
-			});
+
 
 		</script>
 	</head>
@@ -58,34 +118,35 @@
 			</div>
 			<div class="row">
 				<!-- Store the randomly generated 19-120 number here -->
-				<div class="col-md-3" id="randomNumDiv">
-					<p>Random  Number Here</p>
+				<h3 class="col-md-3" id="randomNumDiv">
+					
 					<!-- Store the wins and losses counters here -->
-				</div>
+				</h3>
 				<div class="col-md-2" id="winLossDiv">
-					<p>Wins and Losses Here</p>
+					<p><h3 id="winCountDisplay"></h3></p>
+					<p><h3 id="lossCountDisplay"></h3></p>
 				</div>
 			</div>
 			<br>
 			<div class="row">
 				<!-- Ruby -->
-				<div class="col-md-2 rubyTest">
+				<div class="col-md-2">
 					<button id="rubyButton" class="btn btn-primary"><img id="rubyPic"src="assets/images/ruby.png"></button>
 				</div>
 				<div class="col-md-1"></div>
 				<!-- Sapphire -->
 				<div class="col-md-2">
-					<button class="btn btn-primary"><img id="sapphirePic" src="assets/images/Sapphire-200x200.png"></button>
+					<button class="btn btn-primary" id="sapphireButton"><img id="sapphirePic" src="assets/images/Sapphire-200x200.png"></button>
 				</div>
 				<div class="col-md-1"></div>
 				<!-- Topaz -->
 				<div class="col-md-2" id="topazPic">
-					<button class="btn btn-primary"><img src="assets/images/topaz.jpg"></button>
+					<button class="btn btn-primary" id="topazButton"><img src="assets/images/topaz.jpg"></button>
 				</div>
 				<div class="col-md-1"></div>
 				<!-- Emerald -->
 				<div class="col-md-2" id="emeraldPic">
-					<button class="btn btn-primary"><img src="assets/images/emerald-200x200.jpg"></button>
+					<button class="btn btn-primary" id="emeraldButton"><img src="assets/images/emerald-200x200.jpg"></button>
 				</div>
 			</div>
 			<div class="row">
@@ -96,9 +157,9 @@
 			<br>
 			<div class="row">
 				<!-- Current Score from clicking gems -->
-				<div class="col-md-4" id="playerScoreDiv">
-					
-				</div>
+				<h3 class="col-md-4" id="playerScoreDiv">
+					0
+				</h3>
 			</div>
 		</div>
 	</body>
